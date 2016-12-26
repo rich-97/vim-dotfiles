@@ -14,6 +14,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " | cat - "$1" > $vimrc
   echo "\
+set laststatus=2
 call vundle#end()
 filetype plugin indent on
 source $source_basic

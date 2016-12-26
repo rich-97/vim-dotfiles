@@ -19,9 +19,6 @@ set cmdheight=2
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-" Set a bar for airline
-set laststatus=2
-
 " Spaces
 set expandtab
 
