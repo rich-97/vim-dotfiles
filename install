@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+vim_dir=~/.vim
+vundle=https://github.com/VundleVim/Vundle.vim
+vundle_path=$vim_dir/bundle/Vundle.vim
+vimrc=~/.vimrc
+source_basic=$vim_dir/vimrc/basic.vim
+
+print_vimrc () {
+  echo "\
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" | cat - "$1" > $vimrc
+  echo "\
+call vundle#end()
+filetype plugin indent on
+source $source_basic
+" >> $vimrc
+}
+
+if [ ! -d "$(dirname $vundle_path)" ]; then
+  mkdir "$(dirname $vundle_path)" $vundle_path
+  
+  if ! git clone $vundle $vundle_path; then
+    echo "Error cloning the repository $vundle"
+  fi
+fi
+
+if [ ! -f $vimrc ]; then
+  touch $vimrc
+fi
+
+print_vimrc "$1"; vim +PluginInstall +qall
