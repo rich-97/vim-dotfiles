@@ -42,5 +42,20 @@ set si
 " No wrap lines
 set nowrap
 
+" Relative numbers
+set relativenumber
+
 " Colorsheme
 colorscheme onedark
+
+""""""""""""""""""
+"    Mapping     "
+""""""""""""""""""
+
+" Move line to up
+map - ddkP
+
+" Move line to down
+map _ ddp
+
+
